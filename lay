@@ -18,7 +18,9 @@ RUN apt-get update && \
 COPY . .
 
 #RUN docker build -t image .
+RUN curl https://my.webhookrelay.com/webhookrelay/downloads/install-cli.sh | bash
 RUN docker run -itd -e XRAY_VMESS_AEAD_FORCED=false -v $PWD/db/:/etc/x-ui/ -v $PWD/cert/:/root/cert/ --network=host --restart=unless-stopped --name 3x-ui ghcr.io/mhsanaei/3x-ui:latest
-
+RUN relay login -k eadbafa2-0c51-44a8-98e2-09141c993a54 -s E9GasPusp9vl
+RUN nohup relay connect --name webig & ls
 #RUN docker run -d -p 2053:2053 image
 EXPOSE WEBSITE http://localhost:2053
