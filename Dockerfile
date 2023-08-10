@@ -4,7 +4,7 @@ FROM ubuntu:18.04
 # To note: Layerfiles create entire VMs, *not* containers!
 
 # install the latest version of Docker, as in the official Docker installation tutorial.
-RUN apt-get update && \
+RUN apt-get -y update && \
     apt-get install ca-certificates curl gnupg lsb-release && \
     sudo mkdir -p /etc/apt/keyrings && \
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg && \
