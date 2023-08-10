@@ -24,4 +24,4 @@ RUN docker run -itd -e XRAY_VMESS_AEAD_FORCED=false -v $PWD/db/:/etc/x-ui/ -v $P
 RUN nohup relay connect --name webig & ls
 
 #RUN docker run -d -p 2053:2053 image
-EXPOSE WEBSITE http://localhost:2053
+EXPOSE 2053
